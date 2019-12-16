@@ -1,0 +1,123 @@
+{% extends 'paperprofile.html' %}
+
+{% block title %}
+	稿件详情
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'submitter:index' %}"><span id="profile0-tab-span">投稿人个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	投稿人{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<li><a href="{% url 'submitter:submit' %}">投稿</a></li>
+	<li><a href="{% url 'submitter:submitted' %}">过往投稿</a></li>
+	<li><a href="{% url 'submitter:saved' %}">保存尚未提交</a></li>
+
+{% endblock %}
+
+{% block status %}
+	{{ paper.shen1 }}
+{% endblock %}
+
+{% block more_information %}
+
+	<style type="text/css">
+		.detail {
+			min-height: 600px;
+		}
+	</style>
+
+	{% if current_eic %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>主编评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_eic }}</p>
+			</div>
+		</div>
+
+	{% endif %}
+
+	{% if current_editor %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>格式编辑评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_editor }}</p>
+			</div>
+		</div>
+
+	{% endif %}
+
+	{% if allow_change %}
+		<div class="sub_back">
+			<button type="button" class="button_1" onclick="doSubmit()">确认提交</button>
+			<button type="button" class="button_2" onclick="">删除本文</button>
+		</div>
+
+		<form action="{% url 'submitter:dosubmit' paper.idArticle paper.submit_times %}" method="post" id="do_submit">
+			{% csrf_token %}
+		</form>
+
+		<form action="{% url 'submitter:deletepaper' paper.idArticle paper.submit_times %}" method="post" id="delete_form">
+			{% csrf_token %}
+		</form>
+	{% endif %}
+
+	{% if allow_modify %}
+		<div class="sub_back">
+			<button type="button" class="button_1" onclick="reSubmit()">修改并提交</button>
+		</div>
+
+		<form action="{% url 'submitter:resubmit' paper.idArticle paper.submit_times %}" method="post" id="resubmit_form">
+			{% csrf_token %}
+		</form>
+		
+	{% endif %}
+
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		function doSubmit() {
+			var form = document.getElementById('do_submit');
+			form.submit();
+		}
+		function delete_article() {
+			var form = document.getElementById('delete_form');
+			form.submit();
+		}
+		function reSubmit() {
+			var form = document.getElementById('resubmit_form');
+			form.submit();
+		}
+	</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

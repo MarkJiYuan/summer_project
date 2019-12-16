@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style type="text/css">
+        #over {
+            margin-bottom: 30px;
+            margin-left: 30px;
+            position: relative;
+            padding: 0;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            background-color: #FFFFFF;
+            border-radius: 3px;
+        }
+        .underline:hover {
+            text-decoration: underline;
+        }
+        .new_item {
+            width: 120px;
+            height: 36px;
+            background-color: #1392F1;
+            color: #ffffff;
+            margin-bottom: 12px;
+            border-radius: 3px;
+            font: 400 14px system-ui;
+        }
+    </style>
+{% endblock %}
+
+{% block tab_content %}
+    <div role="tabpanel" class="tab-pane fade in" id="over" aria-labelledby="profile2-tab">
+        <div class="boxdetail open clearfix">
+            <div id="overtable_wrapper" class="dataTables_wrapper no-footer">
+                {% block new_item %}
+                {% endblock %}
+                <table id="overtable" style="width: 100%;" class="dataTable no-footer" role="grid" aria-describedby="overtable_info">
+                    <thead>
+                        {% block t_head %}
+                        {% endblock %}
+                    </thead>
+
+                    <tbody>
+                        {% block paper_url %}
+                        {% endblock %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

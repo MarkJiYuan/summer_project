@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compativle" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/global.css" rel="stylesheet" type="text/css">
+    <link href="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/user.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    .login-mod h2,
+    .intro-mod h2,
+    .news-mod h2 {
+        background-image: url(http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../img/bg_cn_noqiye.png);
+        background-repeat: no-repeat;
+    }
+
+    .login-mod-wrapper {
+        width: 413px;
+        height: 355px;
+        position: absolute;
+        top: 70px;
+        left: 498px;
+    }
+
+    .login-mod-form {
+        background: url(http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../img/loginFormBg.png) no-repeat;
+    }
+
+    .login-mod-qr {
+        background: url(http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../img/bg_qr_expand.png) no-repeat;
+    }
+
+    .login-mod .fi-notit {
+        padding-left: 30px;
+    }
+
+    .app-download {
+        float: left;
+        margin-left: 10px;
+        padding-left: 20px;
+        margin-top: 6px;
+    }
+
+    .app-download-android {
+        background: url(http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../img/ic_android.png) no-repeat;
+    }
+
+    .app-download-iphone {
+        background: url(http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../img/ic_apple.png) no-repeat;
+    }
+
+    .app-download-link {
+        color: #9eb8a0;
+        text-decoration: none;
+    }
+
+    .logo {
+        width: 150px;
+        height: 40px;
+        background: url(http://mailhz.qiye.163.com/qiyeimage/logo/test_sem_tsinghua_edu_cn/1441697414761.png) no-repeat 0 0;
+    }
+    </style>
+    <link href="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/custom.css" rel="stylesheet" type="text/css">
+    <title>注册账户</title>
+
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="header">
+            <h1 class="logo"></h1>
+            <div class="toplinks">
+                <a href="#" target="_self">简体版</a> |
+                <a href="#" target="_self">繁體版</a> |
+                <a href="#" target="_self">English</a> |
+                <a href="#" target="_self">帮助</a>
+            </div>
+        </div>
+        <div class="body">
+            <div class="part main-part" id="main-part">
+                <img src="{% static 'graphs/IS_background4.png' %}" style="width: 1280px;">
+                <div id="login-mod-wrapper" class="login-mod-wrapper login-mod-form">
+                    <div class="mod login-mod login-mod-multidomain">
+                        <form name="loginform" id="loginform" action="{% url 'homepage:new_account' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="ch" id="ch" value="">
+
+                            <h2 id="title_top"></h2>
+
+                            <div class="fi">
+                                迅波投审稿管理系统
+                            </div>
+
+                            {% if message %}
+                                <div class="fi" style="color: red;">{{ message }}</div>
+                            {% endif %}
+
+                            <div class="fi">
+                                <label class="tit" id="title_username">
+                                    用户名
+                                </label>
+                                <input type="text" name="username" id="account_name" class="ipt-t ipt-sample" value="">
+                            </div>
+                            <div class="fi">
+                                <label class="tit" id="title_pwd">
+                                    密 码
+                                </label>
+                                <input type="password" class="ipt-t" name="password" id="password" value="">
+                            </div>
+                            <div class="fi">
+                                <label class="tit" id="title_pwd">
+                                    邮 箱
+                                </label>
+                                <input type="text" class="ipt-t" name="email_adr" id="email" value="">
+                            </div>
+            
+                            <div class="fi fi-notit f-cb">
+                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="submit" class="ipt-b" value="确 认 注 册" style="float:center;" id="title_btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="link">
+                <a href=""><span id="title_phone">咨询电话</span>：(+86)13488884850</a>
+                <a href=""><span id="title_email">电子邮件</span>：zhengjiy16@163.com</a>
+            </div>
+            <div class="right">
+                <span id="title_c">版权所有 清华大学经济管理学院</span>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    var isDefaultBg = false,
+        currentStyle = '3',
+        addresses = '',
+        errMsg = '',
+        domainType = 'hz' || 'bj';
+    </script>
+
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/jquery.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/jquery-migrate.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/lang_zhcn.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/select_network.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/login_util.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/select_banner.js"></script>
+    <script type="text/javascript" src="http://mimghz.qiye.163.com/o/domain/201410101500/index/css/../js/reset_pwd.js"></script>
+
+</body>
+
+</html>

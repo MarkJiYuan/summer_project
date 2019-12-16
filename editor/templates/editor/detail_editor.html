@@ -1,0 +1,111 @@
+{% extends 'paperprofile.html' %}
+
+{% block title %}
+	稿件详情
+{% endblock %}
+
+{% block index_button %}
+	<a class="navbar-brand" href="{% url 'editor:index' %}">编辑个人主页</a>
+{% endblock %}
+
+{% block info %}
+	编辑{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editor:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editor:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editor:done' %}">已完成</a></li>
+	</ul>
+
+{% endblock %}
+
+{% block status %}
+	{{ paper.shen2 }}
+{% endblock %}
+
+{% block more_information %}
+
+	{% if allow_change %}
+
+		<style type="text/css">
+			.detail {
+				min-height: 900px;
+			}
+		</style>
+
+		<div class="info_section">
+	        <div class="notice">
+	            <div class="tit">
+	                <div class="crumb clearfix fl">
+	                    <a>审阅意见</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="cont">
+	            <form action="{% url 'editor:finish' paper.idArticle paper.submit_times %}" method="post" id="comment-form">
+	            	{% csrf_token %}
+	            	<textarea name="comment" class="text_area"></textarea>
+
+					<div class="notice">
+						<div class="tit">
+							<div class="crumb clearfix fl">
+			                    <a>评阅结果</a>
+			                </div>
+						</div>
+					</div>
+
+					<label class="mycheck">
+	                    <input type="radio" name="judgement" value="1" checked="checked"><i></i>通过
+	                </label>
+	                <label class="mycheck">
+	                    <input type="radio" name="judgement" value="0"><i></i>不通过
+	                </label>
+	            </form>
+	        </div>
+	    </div>
+
+	    <div class="sub_back">
+	    	<button class="button_1" onclick="doSubmit()">完成审阅</button>
+	    </div>
+
+    {% endif %}
+
+    {% if editor_comment %}
+
+    	<style type="text/css">
+    		.detail {
+    			min-height: 600px;
+    		}
+    	</style>
+
+		<div class="info_section">
+	        <div class="notice">
+	            <div class="tit">
+	                <div class="crumb clearfix fl">
+	                    <a>Editor审查意见</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="cont">
+	        	<p>{{ editor_comment }}</p>
+	        </div>
+	    </div>
+
+    {% endif %}
+
+	
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		function doSubmit() {
+			var form = document.getElementById('comment-form');
+			form.action = "{% url 'editor:finish' paper.idArticle paper.submit_times %}"
+			form.submit();
+		}		
+	</script>
+
+{% endblock %}

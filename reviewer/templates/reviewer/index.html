@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+	专家主页
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'reviewer:index' %}"><span id="profile0-tab-span">专家个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	专家{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<li><a href="{% url 'reviewer:pending' %}">待处理</a></li>
+	<li><a href="{% url 'reviewer:processing' %}">处理中</a></li>
+	<li><a href="{% url 'reviewer:done' %}">已完成</a></li>
+
+{% endblock %}
+
+{% block tab_content %}
+	{% if message %}
+		<div class="message">{{ message }}</div>
+	{% endif %}
+{% endblock %}
+
+
+

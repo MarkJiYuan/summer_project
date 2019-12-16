@@ -1,0 +1,72 @@
+{% extends 'paperprofile.html' %}
+
+{% block title %}
+	稿件详情
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'reviewer:index' %}"><span id="profile0-tab-span">专家个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	专家{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<li><a href="{% url 'reviewer:pending' %}">待处理</a></li>
+	<li><a href="{% url 'reviewer:processing' %}">处理中</a></li>
+	<li><a href="{% url 'reviewer:done' %}">已完成</a></li>
+
+{% endblock %}
+
+{% block status %}
+	{{ paper.shen2 }}
+{% endblock %}
+
+{% block more_information %}
+
+	{% if current_reviewer %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>Reviewer{{ current_reviewer }}评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_reviewer }}</p>
+			</div>
+		</div>
+		
+	{% endif %}
+
+	{% if allow_comment %}
+
+		<div class="info_section">
+	        <div class="notice">
+	            <div class="tit">
+	                <div class="crumb clearfix fl">
+	                    <a>审阅意见</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="cont">
+	            <form action="{% url 'reviewer:finish' paper.idArticle paper.submit_times %}" method="post" id="comment-form">
+	            	{% csrf_token %}
+	            	<textarea name="comment" class="text_area"></textarea>
+
+					<button type="submit" class="button_1" style="margin-top: 20px;margin-left: 50px;margin-bottom: 30px;">完成评审</button>
+	            </form>
+	        </div>
+	    </div>
+
+	{% endif %}
+		
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

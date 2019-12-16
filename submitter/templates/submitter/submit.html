@@ -1,0 +1,88 @@
+{% extends 'newitem.html' %}
+
+{% block title %}
+	投递文章
+{% endblock %}
+
+{% block index_button %}
+	<a class="navbar-brand" href="{% url 'submitter:index' %}">投稿人个人主页</a>
+{% endblock %}
+
+{% block info %}
+	投稿人{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<li><a href="{% url 'submitter:submit' %}">投稿</a></li>
+	<li><a href="{% url 'submitter:submitted' %}">过往投稿</a></li>
+	<li><a href="{% url 'submitter:saved' %}">保存尚未提交</a></li>
+
+{% endblock %}
+
+
+{% block form %}
+	<form enctype="multipart/form-data" action="{% url 'submitter:upload_file' %}" method="post" id="new-article-form" class="newitem_form" >
+		{% csrf_token %}
+		<input type="hidden" name="is_second_submit" value="{{ second_submit }}">
+		<input type="hidden" name="old_idArticle" value="{{ old_idArticle }}">
+		<input type="hidden" name="old_submit_times" value="{{ old_submit_times }}">
+		<input type="hidden" name="old_path" value="{{ old_path }}">
+
+		<div class="input_box">
+	        <div class="left_text"><i class="red">*</i>文章题目</div>
+	        <div class="right_input">
+	            <input type="text" name="title" required="" value="{{ old_title }}" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+	        </div>
+	    </div>
+
+	    <div class="input_box">
+	        <div class="left_text"><i class="red">*</i>作者</div>
+	        <div class="right_input">
+	            <input type="text" name="author" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+	        </div>
+	    </div>
+
+	    <div class="input_box">
+	        <div class="left_text"><i class="red">*</i>关键词</div>
+	        <div class="right_input">
+	            <input type="text" name="keywords" required="" value="{{ old_keywords }}" autocomplete="off" placeholder="不同领域名用空格分割" aria-required="true">
+	        </div>
+	    </div>
+
+	    <div class="input_box">
+	    	<div class="left_text"><i class="red">*</i>摘要</div>
+	    	<div class="right_input">
+	    		<textarea name="abstract" class="text_area">{{ old_abstract }}</textarea>
+	    	</div>
+	    </div>
+
+	    <div class="input_box">
+	    	<div class="left_text"><i class="red">*</i>附件</div>
+	    	<div class="right_input">
+	    		<input type="file" name="myfile">
+	    	</div>
+		</div>
+
+	    <div class="sub_back">
+	    	<button type="button" class="do_submit" onclick="upload()">提  交</button>
+	    	<button type="button" class="return_btn" onclick="save()">保  存</button>
+	    </div>
+	</form>
+{% endblock %}
+
+
+
+{% block script %}
+	<script type="text/javascript">
+		function upload() {
+			var form = document.getElementById('new-article-form');
+			form.submit();
+		}
+		function save() {
+			var form = document.getElementById('new-article-form');
+			form.action = "{% url 'submitter:save_file' %}"
+			form.submit();
+		}
+	</script>
+{% endblock %}

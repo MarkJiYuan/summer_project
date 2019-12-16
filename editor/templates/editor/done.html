@@ -1,0 +1,45 @@
+{% extends 'list.html' %}
+
+{% block title %}
+	{{ table_title }}
+{% endblock %}
+
+{% block index_button %}
+	<a class="navbar-brand" href="{% url 'editor:index' %}">编辑个人主页</a>
+{% endblock %}
+
+{% block info %}
+	编辑{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editor:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editor:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editor:done' %}">已完成</a></li>
+	</ul>
+
+{% endblock %}
+
+{% block t_head %}
+	<tr>
+		<td>题目</td>
+		<td>投稿次数</td>
+		<td>关键词</td>
+		<td>提交时间</td>
+		<td>审阅状态2</td>
+	</tr>
+{% endblock %}
+
+{% block paper_url %}
+	{% for paper in papers %}
+		<tr>
+			<td><a href="{% url 'editor:profile' paper.idArticle paper.submit_times %}" class="underline">{{ paper.title }}</a></td>
+			<td>{{ paper.submit_times }}</td>
+			<td>{{ paper.keywords }}</td>
+			<td>{{ paper.submit_time }}</td>
+			<td>{{ paper.shen2 }}</td>
+		</tr>
+	{% endfor %}
+{% endblock %}

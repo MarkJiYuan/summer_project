@@ -1,0 +1,68 @@
+{% extends 'list.html' %}
+
+{% block title %}
+	{{ table_title }}
+{% endblock %}
+
+{% block index_button %}
+	<a class="navbar-brand" href="{% url 'editorinchief:index' %}">主编个人主页</a>
+{% endblock %}
+
+{% block info %}
+	主编{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editorinchief:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editorinchief:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editorinchief:all_articles' %}">全部稿件</a></li>
+	</ul>
+	<ul>
+		<li><a href="{% url 'editorinchief:admin_editor' %}">editor管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_ae' %}">ae管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_reviewer' %}">reviewer管理</a></li>
+	</ul>
+{% endblock %}
+
+{% block new_item %}
+	<div class="new-ae">
+		<button onclick="new_ae()" class="new_item">新增ae</button>
+	</div>
+{% endblock %}
+
+{% block t_head %}
+	<tr>
+		<td>姓名</td>
+		<td>账户</td>
+		<td>机构</td>
+		<td>领域</td>
+	</tr>
+{% endblock %}
+
+{% block paper_url %}
+	{% for ae in aes %}
+		<tr>
+			<td>{{ ae.name }}</td>
+			<td>{{ ae.account }}</td>
+			<td>{{ ae.institution }}</td>
+			<td>{{ ae.field }}</td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		function new_ae() {
+			window.location.href = "{% url 'editorinchief:new_ae' %}"
+		}
+	</script>
+{% endblock %}
+
+
+
+
+
+
+

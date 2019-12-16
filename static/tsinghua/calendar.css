@@ -1,0 +1,22 @@
+.calendar{/*  padding:16px 10px ; */background: #fff; padding-bottom: 14px;margin-bottom: 20px;border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;min-height: 206px;}
+.calendar h3{ /* border-bottom:1px solid #E0E0E0; */ color:#3b3b3b; font-size:14px; line-height:24px; padding-bottom:18px;line-height: 1;padding-top: 18px;color: #fff;background-color: #48ca70;border-top-left-radius: 3px;border-top-right-radius: 3px;}
+.bigger .calendar h3{font-size: 16px;}
+.calendar h3 .right a{ font-size:14px; padding-right:4px; color:#3b3b3b;}
+.bigger .calendar h3 .right a{font-size: 16px;}
+.calendar h3 .right a.icon-angle-right{ padding:0 10px; font-size:22px; line-height: 24px;}
+.calendar h3 .right a.icon-angle-left{ padding:0 10px; font-size:22px; line-height: 24px;}
+.calendar h3 .right span {font-size: 16px;}
+.bigger .calendar h3 .right span {font-size: 18px;}
+.calendar table{ width:90%; text-align:center;margin: 0 auto;}
+.calendar table td{ padding:1px 0; text-align: center;}
+.calendar table th{ padding-bottom:5px; color:#3b3b3b; font-family:sans-serif; padding-top:9px;font-size: 12px;width:33px;}
+.calendar table td a{ display:block; margin: auto; width:22px; height:22px; line-height:22px; font-family:"Lucida Sans Unicode", sans-serif; color:#3b3b3b; border-radius:16px;font-size: 12px;}
+.calendar table td a.yellow{ border: 1px solid  #f4c300;}
+.calendar table .oldDay a.yellow{ border: 1px solid  #b0afae;}
+.calendar table td a.blue{ background:#8ef0ff;}
+.center{text-align: center;}
+.center >span{margin:0 40px; color: #fff;}
+.curDay a{background:  #f4c300;!important;}
+.calendar table .curDay a{color: #fff;}
+.center .fa{color: #fff;}
+.state .count{color: #048fe7;float: right;}

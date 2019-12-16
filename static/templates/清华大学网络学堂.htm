@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>操作系统（00740103-90）</title>
+    <link rel="stylesheet" href="/res/app/wlxt/css/css/amazeui.min.css?v=353">
+    <link rel="stylesheet" href="/res/app/wlxt/css/css/amazeui.cropper.css?v=353">
+    <link rel="stylesheet" href="/res/app/wlxt/css/css/custom_up_img.css?v=353">
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/myfonts/fonticon.css?v=353" />
+    <link rel="stylesheet" href="/res/app/wlxt/css/zeroModal/zeroModal.css?v=353" />
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/common.css?v=353">
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/muban.css?v=353">
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/tc.css?v=353">
+    <!--<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/buzhizuoye.css?v=353">-->
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/font-awesome/css/font-awesome.css?v=353" />
+    <script src="/component/ckeditor/ckeditor.js?v=353"></script>
+    <script type="text/javascript" src="/res/app/wlxt/js/jquery.js?v=353"></script>
+    <style>
+
+    </style>
+</head>
+<body class="bg">
+
+
+
+
+
+
+
+
+
+
+    <script src="/f/wlxt/common/languagejs?lang=zh_CN&v=353"></script>
+
+
+<style>
+ .hidden {display:none}
+ .more {cursor:pointer}
+ .zeromodal-container.english .lists .left{margin-bottom: 0px;}
+ .zeromodal-container.english .lists .left >div,.zeromodal-container.english .lists .right >div{margin-bottom:12px;}
+</style>
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/zeroModal/zeroModal.css?v=353" />
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/myfonts/fonticon.css?v=353">
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/font-awesome/css/font-awesome.css?v=353">
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/upload-cropper/amazeui.min.css?v=353">
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/upload-cropper/amazeui.cropper.css?v=353">
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/upload-cropper/mycropper_img.css?v=353">
+<!-- ( {{value.count}})   <input type="text" class="dataTable-search" sname="bt" value="{{con}}" id="searchkenei">  <!-- 搜索内容后台填写 -->
+                      <!--  <a  onclick="courseinsideSearch()" class="btn"><i class="fa fa-search"></i>搜索</a>-->
+      <script type="text/html" id="searchconspt">
+        <div class="fl course-w clearfix" style="" id="searchpanel">
+            <div class="notice clearfix">
+                <div class="tit clearfix">
+                    <span class="xuetang left">课内搜索</span>
+                </div>
+            </div>
+            <div class="detail clearfix">
+                <form action="" name="form" method="get">
+                    <div class="note_search kenei">
+                    </div>
+                    <div class="navbar" style="margin-top:10px">
+                        {{each tablist value i}} 
+                        {{each value.list value j}} 
+                        <a href="javascript:void(0)" class="{{if j==tab}}active{{/if}}" id="all" onclick="tabchange({{j}})">{{value.title}} (<span class="count-{{j}}">0</span>)</a> 
+                        {{/each}}
+                        {{/each}}
+                    </div>
+                    <ul class="tablist">
+                        <li attr-id="all" style="" id="alltab">
+                            <div id="ggdiv" class="listpanel hidden nonum " style="margin-top: 24px;">
+                                <div class="title">
+                                    公告<a onclick="tabchange(1)"class="more">更多</a>
+                                </div>
+                                <table id="ggalltable" class="table dataTable"> </table>
+                            </div>
+                            <div id="kjdiv"class="hidden listpanel">
+                                <div class="title">
+                                    文件<a  onclick="tabchange(2)"class="more">更多</a>
+                                </div>
+                                <table id="kjalltable"class="table biji dataTable">   </table>
+                            </div>
+                            <div id="zydiv"class="hidden listpanel">
+                                <div class="title">
+                                    作业<a  onclick="tabchange(3)"class="more">更多</a>
+                                </div>
+                                <table id="zyalltable"class="table zuoye dataTable"> </table>
+                            </div>
+                             <div id="tldiv"class="hidden listpanel">
+                                <div class="title">
+                                    讨论<a  class="more"onclick="tabchange(4)">更多</a>
+                                </div>
+                                   <table id="bbsalltable"class="table taolun dataTable">  </table>
+                            </div>
+                            <div id="dydiv"class="hidden listpanel">
+                                <div class="title">
+                                    答疑<a  class="more"onclick="tabchange(5)">更多</a>
+                                </div>
+                                <table id="dyalltable"class="table biji dataTable">   </table>
+                            </div>
+                            <div id="bjdiv"class="hidden listpanel">
+                                <div class="title">
+                                    笔记<a  class="more" onclick="tabchange(6)">更多</a>
+                                </div>
+                                <table id="bjalltable" class="table biji dataTable"></table>
+                            </div>
+                        </li>
+                        <li style="" id="other">
+                        <table id="examplesearch"  class="nonum"></table>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </script>
+    
+  <style>
+        .header .right span.teacher-logo {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        background: url("/b/wlxt/xt/v_jsxsxx/teacher/queryTxByZjh?zjh=15f6cf3fb215454eb81b8827954d39f3") no-repeat center;
+        background-size:cover;
+        vertical-align: middle;
+        border-radius: 50%;
+        margin-right: 8px;
+        }
+        .right >div >a >i[class^="webicon-"]{position:relative;top:-1px;}
+  </style>
+<input type="hidden" id="ggallnum">
+<input type="hidden" id="kjallnum">
+<input type="hidden" id="zyallnum">
+<input type="hidden" id="bbsallnum">
+<input type="hidden" id="dyallnum">
+<input type="hidden" id="bjallnum">
+<input value="2016080074" type="hidden" id="userid">
+<input value="2019-2020-1139281729" type="hidden" id="course_id"> 
+ <input value="2019-2020-1139281729" type="hidden" id="wlkcid">   
+ <input value="" type="hidden" id="searchkey">  
+  
+ <div class="header had CN">
+        <div class="w">
+            <div class="left">
+                <a style="cursor: pointer;" href="/f/wlxt/index/course/student/index" ><img src="/res/app/wlxt/img/netcourse_logo.png" alt="退出"><span class="Beta">Beta Version</span></a>
+            </div>
+            <div class="right">
+                <div  id="filtericon" style="position: relative;"><a class="user-log" onclick="javascript:onclick_open();" id="filtericon2">
+                    <span class="teacher-logo" style="display: inline-block;"></span>
+                    郑吉源<i class="webicon-godown"></i><i class="webicon-goup"></i></a>
+                    <div class="divbox filter clearfix">
+                        <div class="triangle"></div>
+                        <div class="state_div"></div>
+                        <div class="logo-cot">
+                            <div class="logo-info">
+                                <div class="up-img-cover fl" id="up-img-touch">
+
+                                    <span class="teacher-logo" style="width: 60px;display: inline-block;height: 60px;"></span>
+                                    <div class="logo-bg" style="" id="uploadol">更改头像</div>
+                                </div>
+                                <div class="fl up-img-info">
+                                    <p>
+                                        <label>郑吉源</label>
+                                        <label>同学</label>
+                                    </p>
+                                    <p>
+
+                                        <label>
+                                            
+                                                经管学院
+                                            
+                                            
+                                       </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+<!--                         <div class="outbox"> -->
+
+<!--                         </div> -->
+                    </div>
+                </div>
+
+               <!--  <div><a class="user-log" onclick="javascript:onclick_open();">郑吉源</a></div> -->
+               
+                    
+                    
+                        <div id="setting"><a><i class="webicon-Setup"></i><span>设置</span></a></div>
+                    
+                
+
+
+
+                <script type="text/html" id="settings_tip">
+                  <ul style="">
+                    <div class="triangle"></div>
+                    <!-- <li class="fontSize clearfix" id="">
+                        <div class="fl sizeziti">字体大小</div>
+                        <div class="fl setingziti">
+                            <p><span>A</span><span>A</span></p>
+                            <div id="slideThree" class="slideThree">
+                                <input type="checkbox" value="None" id="" name="check" checked="checked">
+                                <label for="slideThree"></label>
+                            </div>
+                        </div>
+                    </li>-->
+                    <!-- <li class="fontbox" style="line-height: 46px;border-bottom: 1px solid #eaeaea;"><span>字体大小</span></li> -->
+                    
+                    
+                        
+                            <li style="text-align: left;line-height: 46px;cursor: pointer;padding-left:20px;" id="mail">设置自动提醒邮件</li>
+                            <li style="text-align: left;line-height: 46px;cursor: pointer;padding-left:20px;" id="stmail"><span>设置邮箱</span></li>
+                        
+                        
+                    
+                  </ul>
+                </script>
+                <!-- <div><a><i class="fa webicon-kccj" ></i>字号</a></div> -->
+                <div><a target="_blank"  rel="noopener noreferrer" href="/f/wlxt/common/courseSearch"><i class="webicon-top-search" ></i>课程搜索</a></div>
+                
+                 
+                
+                <div><a ref="javascript:void(0);"  onclick="switchTo('en_US');"><i class="fa webicon-en" ></i>英文</a></div>
+                
+                
+                
+                <div><a href="/f/wlxt/common/help" target="_blank"  rel="noopener noreferrer" ><i class="webicon-help" ></i>帮助</a></div>
+                <div><a ref="javascript:void(0);"  onclick="beforeLogout();"><i class="webicon-out"></i>退出登录</a></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="IE9tempbigger">
+        <div class="change-logo">
+            <div><a style="text-align: center; display: block;" id="pic"></a></div>
+            <!-- 图片上传框 -->
+            <div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1">
+                <div class="am-modal-dialog up-frame-parent up-frame-radius">
+                    <div class="am-modal-hd up-frame-header">
+                        <label>更改头像</label>
+                        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                    </div>
+                    <div class="am-modal-bd  up-frame-body clearfix" style="width: 100%;">
+                        <div class="am-g am-fl">
+                            <label class="am-form-group am-form-file"  for='inputImage'>
+                                <div class="am-btn am-btn-default am-btn-sm">选择要上传的文件</div>
+                                <input type="file" id="inputImage">
+                                <!--<div><label class="labelmiddle">选择要上传的文件</label></div> -->
+                            </label>
+                        </div>
+                        <div class="am-g am-fl">
+                            <div class="up-pre-before up-frame-radius">
+                                <img alt="" src="/b/wlxt/xt/v_jsxsxx/teacher/queryTxByZjh?zjh=15f6cf3fb215454eb81b8827954d39f3" id="image">
+                            </div>
+                            <div class="up-pre-after up-frame-radius"></div>
+                            <label class="first_label">裁剪效果预览</label>
+                            <label class=" labelmiddle">此头像用于课程答疑、课程讨论</label>
+                        </div>
+                    </div>
+                    <div class="am-modal-bd  up-frame-footer">
+                        <div class="sub-back">
+                            <input id="up-btn-ok" url="/b/wlxt/xt/v_jsxsxx/teacher/uploadZpByZjh?zjh=2016080074" type="submit" value="确定" class="btn">
+                            <input data-am-modal-close="" type="button" value="取消" class="btn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 加载框 -->
+            <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">正在上传...</div>
+                    <div class="am-modal-bd">
+                        <span class=""></span>
+                    </div>
+                </div>
+            </div>
+            <!-- 警告框 -->
+            <div class="am-modal am-modal-alert am-modal-active" tabindex="-1" id="my-alert">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd mycheck mb10_fts17"><i class="webicon-t_check"></i></div>
+                    <div class="zeromodal-title1" id="alert_content">上传文件失败了！！</div>
+                    <div zeromodal-btn-container="f097b83639ae44c0a25ab84265e88f57" class="zeromodal-btn-container">
+                         <button zeromodal-btn-ok="f097b83639ae44c0a25ab84265e88f57" class="btn btn-primary" onclick="onclick_queding();">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="IE9temp">
+        <div class="shade" style="display: none;"></div>
+        <div class="shade_content" style="display: none;">
+            <div class="add-group">更改头像</div>
+            <div class="panel-body clearfix">
+                <div class="logoupload fl">
+                    <div class="btn btn-upload"></div>
+                    <!--<div class="img_place"><img  src="img/hu.jpg" width="80" height="80"></div>-->
+
+                    <p>选择文件</p>
+                </div>
+                <div class=" fl">
+                    <div class="upload_img"></div>
+                </div>
+                <div class="logoupload fl">
+
+                    <input type="file" name="file" id="doc" onchange="setImagePreview(this);">
+                    <p>预览效果</p>
+                </div>
+            </div>
+            <div class="kine">
+                <div class="sub-back clearfix">
+
+                    <input onclick="onclick_close();" type="button" value="取消" class="btn">
+                </div>
+            </div>
+            <div class="shade-close" onclick="onclick_close();"><i class="fa fa-times"></i></div>
+        </div>
+    </script>
+    <div id="uploadimg"></div>  
+
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/zeroModal/zeroModal.css?v=353" />
+<link rel="stylesheet" type="text/css" href="/res/app/wlxt/myfonts/style.css?v=353" />
+<style>
+    .tsk{display: none;}
+    .jg {
+        padding-left: 67px;
+    }
+
+    .jg img {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .jg .item {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 6px;
+    }
+
+    .jg .item p {
+        font-size: 20px;
+        color: #ff9600;
+        line-height: 1;
+    }
+
+    .jg .item p.last {
+        color: #777777;
+        margin-top: 12px;
+    }
+
+    .llq-tb {
+        display: table;
+        margin-top: 54px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .llq-tb .td {
+        display: table-cell;
+        text-align: center;
+        width: 159px;
+        height: 208px;
+    }
+
+    .llq-tb .name {
+        font-size: 18px;
+        color: #666;
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+
+    .loadbtn {
+        line-height: 34px;
+        width: 100px;
+        text-align: center;
+        font-size: 14px;
+        display: inline-block;
+        color: #aaa;
+    }
+    a.loadbtn{
+        background-color: #1493f2;
+        border-radius: 17px;
+        color: #fff;
+    }
+
+    .loadbtn:hover {
+        opacity: 0.8;
+    }
+    .tsgrey{position: fixed;top: 0;left: 0;bottom: 0;right: 0;background-color: #000;opacity: 0.3;display: none;}
+    .llq-tb .browser_ic {color: #cccccc;margin-bottom: 26px;}
+    .llq-tb .browser_ic i{font-size: 24px;}
+    .llq-tb .browser_ic i.webicon-Windows{font-size: 20px;}
+
+    
+    
+</style>
+<div class="tsgrey" id="tsgrey"></div>
+<div zero-unique-container="bd7d5517ce6447878787942dfd86ba0d" class="zeromodal-container llq tsk" id="tsk" style="z-index: 10002; width: 1100px; height: 500px; left:50%; top: 200px; position: absolute; margin: 0px;margin-left: -550px;" >
+    <div zero-unique-top="bd7d5517ce6447878787942dfd86ba0d" class="zeromodal-top" style="cursor: move;"></div>
+    <div zeromodal-unqiue-header="bd7d5517ce6447878787942dfd86ba0d" class="zeromodal-header" style="border-bottom: none;">
+        <div title="关闭" zero-close-unique="bd7d5517ce6447878787942dfd86ba0d" class="zeromodal-close"><i class="webicon-g_close" id="closebtn"></i></div> <span class="modal-title"></span> </div>
+    <div zero-unique-body="bd7d5517ce6447878787942dfd86ba0d" class="zeromodal-body zeromodal-overflow-y" style="height: 450px;">
+
+        <div class="jg" >
+            <img src="/res/app/wlxt/img/jg.png" alt="" width="72" height="67">
+            <div class="item">
+                <p id="jgMessage"><spring:message code="xitongbuzhichiliulanqi"/></p>
+                <p class="last"><spring:message code="qingshiyongyixialiulanqi"/></p>
+            </div>
+        </div>
+        <div class="llq-tb">
+            <div class="td">
+                <img src="/res/app/wlxt/img/Chromeicont.png" alt="">
+                <p class="name">Chrome</p>
+                <p class="browser_ic"><i class="webicon-Windows"></i><i class="webicon-mac"></i></p>
+                <a href="" class="loadbtn" id="chrome"><spring:message code="xiazai"/></a>
+            </div>
+            <div class="td">
+                <img src="/res/app/wlxt/img/firefoxicon.png" alt="">
+                <p class="name">Firefox</p>
+                <p class="browser_ic"><i class="webicon-Windows"></i><i class="webicon-mac"></i></p>
+                <a href="" class="loadbtn" id="firefox"><spring:message code="xiazai"/></a>
+            </div>
+            <div class="td">
+                <img src="/res/app/wlxt/img/safariicon.png" alt="">
+                <p class="name">Safari</p>
+                <p class="browser_ic"><i class="webicon-mac"></i></p>
+                <!--  <a href="" class="loadbtn"><spring:message code="xiazai"/></a> -->
+                <p href="" class="loadbtn"><spring:message code="xitongzidai"/></p>
+            </div>
+            <div class="td">
+                <img src="/res/app/wlxt/img/edgeicon.png" alt="">
+                <p class="name">Edge</p>
+                <p class="browser_ic"><i class="webicon-Windows"></i></p>
+                <!--  <a href="" class="loadbtn"><spring:message code="xiazai"/></a> -->
+                <p href="" class="loadbtn"><spring:message code="xitongzidai"/></p>
+            </div>
+            <div class="td">
+                <img src="/res/app/wlxt/img/ieicon.png" alt="">
+                <p class="name">IE11</p>
+                <p class="browser_ic"><i class="webicon-Windows"></i></p>
+                <p href="" class="loadbtn"><spring:message code="xitongzidai"/></p>
+            </div>
+            <div class="td">
+                <img src="/res/app/wlxt/img/ieicon.png" alt="">
+                <p class="name">IE10</p>
+                <p class="browser_ic"><i class="webicon-Windows"></i></p>
+                <a href="" id="ie10" class="loadbtn"><spring:message code="xiazai"/></a>
+                <p href="" id="ie10Mac" class="loadbtn"><spring:message code="shiyongwxiazai"/></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var showTs = function() {
+        document.getElementById('tsgrey').style.display="block";
+        document.getElementById('tsk').style.display="block";
+    };
+    var hideTs = function() {
+        document.getElementById('tsgrey').style.display="none";
+        document.getElementById('tsk').style.display="none";
+    };
+
+    function BrowserType()
+    {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+        var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+        var isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+        var isChrome = userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1&&!isEdge; //判断Chrome浏览器
+
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+        if(isIE) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            if(fIEVersion == 7) {
+                return 7;
+            } else if(fIEVersion == 8) {
+                return 8;
+            } else if(fIEVersion == 9) {
+                return 9;
+            } else if(fIEVersion == 10) {
+                return "IE10";
+            } else {
+                return 6;//IE版本<=7
+            }
+        } else if(isEdge) {
+            return 'Edge';//edge
+        } else if(isIE11) {
+            return "IE11"; //IE11
+        }
+
+        if (isFF) { return "Firefox";}
+        if (isOpera) { return "Opera";}
+        if (isSafari) { return "Safari";}
+        if (isChrome) { return "Chrome";}
+        if (isEdge) { return "Edge";}
+    }//myBrowser() end
+
+
+
+
+
+    var browserFilter = ["Chrome","Firefox","Safari","Edge","IE11","IE10"];
+    function checkIfCurrentBrowserInBrowserFilter() {
+        var currentBrowserType = BrowserType();
+        //alert(currentBrowserType);
+        var flag = false;
+        for(var i=0;i<browserFilter.length;i++){
+            if(browserFilter[i]==currentBrowserType){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            setDownLoadHref();
+            showTs();
+            document.getElementById("closebtn").onclick=function(){
+                hideTs();
+            }
+        }else{
+            hideTs();
+        }
+
+    }
+
+    checkIfCurrentBrowserInBrowserFilter();
+
+    function getSysBit(){
+        var x  = navigator.userAgent.match(/x86_64|Win64|WOW64/) ||navigator.cpuClass === 'x64' ? 'x64' : 'x86';
+        return x;
+    }
+
+    /**
+     * 获取系统类型
+     * @return {'Mac' or 'Win' or 'Linux'}
+     */
+    function getSysType(){
+        var os = navigator.platform.match(/(Win|Mac|Linux)/);//系统
+        var x = os && os[1];
+        return x;
+    }
+    function setDownLoadHref() {
+
+        if(getSysType()=="Mac"){
+            document.getElementById("chrome").href= "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/chrome-mac.dmg&dl=1";
+            document.getElementById("firefox").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/Firefox-mac.dmg&dl=1" ;
+            document.getElementById("ie10Mac").style.display="inline";
+            document.getElementById("ie10").style.display="none";
+        }
+         if(getSysType()=="Win"){
+            if(getSysBit()=="x64"){
+                document.getElementById("chrome").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/chrome64_stable_windows_installer.exe&dl=1";
+                document.getElementById("firefox").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/Firefox-full-latest.exe&dl=1";
+                document.getElementById("ie10").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/IE10-Windows7-x64-en-us.exe&dl=1";
+                document.getElementById("ie10Mac").style.display="none";
+            }
+
+            if(getSysBit()=="x86"){
+                document.getElementById("chrome").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/Google_Chrome_%2832bit%29_v55.0.2883.87.exe&dl=1";
+                document.getElementById("firefox").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/Firefox-full-latest.exe&dl=1";
+                document.getElementById("ie10").href = "https://cloud.tsinghua.edu.cn/d/6275018c12d849bfb040/files/?p=/IE10-Windows7-x86-en-us.exe&dl=1";
+                document.getElementById("ie10Mac").style.display="none";
+            }
+        }
+    }
+
+$(function () {
+    $("#downloadBrowser").click(function () {
+        scrollTo(0,0);
+        $("#jgMessage").css("display","none");
+        setDownLoadHref();
+        showTs();
+        document.getElementById("closebtn").onclick=function(){
+            hideTs();
+        }
+    });
+});
+
+
+</script>  
+<script type="text/javascript">
+$(function(){
+var XSLB = "本科生"
+var TS = ""
+var EMAIL = "zhengjiy16@mails.tsinghua.edu.cn"
+if(EMAIL == "" || EMAIL == null){
+    if(XSLB == "研究生"){
+        TS = "您尚未设置常用邮箱，网络学堂无法给您发送自动邮件提醒，也无法在发送给老师的提醒中告知老师您的邮箱地址.<br/><a href='http://zhjw.cic.tsinghua.edu.cn/jxmh.do?m=yjs_EditGrxx' style='color:#1392f1'>去info设置邮箱</a> （注：在info设置后，24小时后邮箱地址会同步到网络学堂。之后，您可以设置自动提醒邮件选项）."
+    }else if(XSLB == "本科生"){
+        TS = "您尚未设置常用邮箱，网络学堂无法给您发送自动邮件提醒，也无法在发送给老师的提醒中告知老师您的邮箱地址.<br/><a href='http://zhjw.cic.tsinghua.edu.cn/jxmh.do?m=bks_EditGrxx' style='color:#1392f1'>去info设置邮箱</a> （注：在info设置后，24小时后邮箱地址会同步到网络学堂。之后，您可以设置自动提醒邮件选项）."
+    }else{
+        TS = null;
+    }
+}else{
+    if(XSLB == "研究生"){
+        TS = "您当前设置的邮箱为："+EMAIL+",<br/>如需修改<a href='http://zhjw.cic.tsinghua.edu.cn/jxmh.do?m=yjs_EditGrxx' style='color:#1392f1'>去info设置邮箱</a> （注：在info设置后，24小时后邮箱地址会同步到网络学堂。之后，您可以设置自动提醒邮件选项）."
+    }else if(XSLB == "本科生"){
+        TS = "您当前设置的邮箱为："+EMAIL+",<br/>如需修改<a href='http://zhjw.cic.tsinghua.edu.cn/jxmh.do?m=bks_EditGrxx' style='color:#1392f1'>去info设置邮箱</a> （注：在info设置后，24小时后邮箱地址会同步到网络学堂。之后，您可以设置自动提醒邮件选项）."
+    }else{
+        TS = null;
+    }
+}
+    $("#setting").delegate('#stmail', 'click', function(event) {
+        zeroModal.show({
+                    title: '设置邮箱',
+                    content:TS,
+                    width: '600px',
+                    height: '217px',
+                    ok: false,
+                    overlay: true,
+                    cancel: false,
+                    cancelTitle: "取消",
+                    css:'remindmail',
+    });
+        }); 
+    
+    //设置邮件提醒
+     $("#setting").hover(function() {
+            /* Stuff to do when the mouse enters the element */
+
+            $("#setting").append('<div id="dw"></div>');
+            //debugger;
+            var mytabhtml = template('settings_tip', {}); 
+            $("#dw").html(mytabhtml); 
+            if(getCookie("wlxt|nav_font")&&getCookie("wlxt|nav_font")!=" "){
+                $("#slideThree").addClass('yes');
+                $("#slideThree").children('input').prop('checked', 'checked');
+            }
+        }, function() {
+            /* Stuff to do when the mouse leaves the element */
+             $("#dw").remove('');
+
+        }).delegate('#mail', 'click', function(event) {
+            zeroModal.show({
+                title: '设置自动提醒邮件',
+                url: '/f/wlxt/setting/yh_csb/student/beforeEdit',
+                width: '600px',
+                height: '560px',
+                ok: true,
+                overlay: true,
+                cancel: true,
+                cancelTitle: "取消",
+                css:"CN",
+                okFn: function(opt) {
+                    console.log(opt);
+                    $.ajax({
+                        url:$("#settingEditForm").attr("action"),
+                        method :  "POST",
+                        dataType:"json",
+                        data : JSON.stringify($("#settingEditForm").serializeArray()),
+                        contentType:"application/json",
+                        success:function(r){
+                            
+                        }
+                      });
+                    
+                    return true;
+                }
+
+            });
+        }).delegate('#slideThree', 'click', function(event) {
+            if ($(this).hasClass('yes')) {  //小字体
+                $(this).removeClass('yes');
+                $(this).children('input').prop('checked', '');
+                $("body").removeClass("bigger");
+                deleteCookie("wlxt|nav_font");
+            } else {
+                $(this).addClass('yes');
+                $(this).children('input').prop('checked', 'checked');
+                $("body").addClass("bigger");
+                setCookie("wlxt|nav_font", "bigger", 15);
+            }
+        });
+});
+
+var locale;
+function switchTo(lang){
+    /*$.ajaxSetup({
+        async : false
+    });
+    $.get("/f/wlxt/common/language?websiteShowLanguage=" + lang,
+                function(data){ }
+       );*/
+    $.ajax({
+        type: "POST",
+        url: "/f/wlxt/common/language?websiteShowLanguage=" + lang,
+        async:false,
+        success: function(data)
+        {
+
+        }
+    });
+
+    window.location.href = window.location.href;
+    locale = lang;
+
+}
+
+//退出
+function beforeLogout(){
+    
+    var info='您将要退出网络学堂';
+    MyApp.showConfirm(info,function(){
+         MyApp.post("/f/j_spring_security_logout",function () {
+                    window.location.href = "/";
+
+            });
+         
+    });
+    
+}
+var editoron=false;
+var jsAppVersion = 353;
+</script>
+<script type="text/javascript" src="/res/app/wlxt/js/plugin/md5/md5.js?v=353"></script>
+<script type="text/javascript" src="/res/app/wlxt/js/student/courseInsideSearch.js?v=353"></script>
+<script type="text/javascript">
+//课内搜索的搜索历史，完善搜索历史归档，具体到某用户搜索的历史，防止一个浏览器多账号登陆，串搜索记录；
+ 
+var userid =  $("#userid").val();
+  userid_md5 = $.md5(userid);
+     var searchvalue = getCookie(userid_md5);
+     $(function(){
+        $("#searchcourse").val(searchvalue);
+     });
+ 
+</script>
+
+    <div class="content clearfix">
+        
+
+
+
+
+
+<style>
+.tit #wlxt_index_course {
+    padding-top: 8px;
+    background: #f2f6f9;
+    height: 56px;
+    border-left: 4px solid #f2f6f9;
+}
+.kc1{
+    display:none;
+}
+</style>
+<link rel="stylesheet" type="text/css"
+    href="/res/app/wlxt/myfonts/fonticon.css?v=353">
+    <input value="2019-2020-1139281729" type="hidden" id="wlkcidbyleft">  
+<div class="fl w navlef" style="height:854px;">
+    <ul class="tit" id="mrhere">
+        <!-- <li class="search"><i class="webicon-search" style="" id="searchicon"></i>
+             <input type="text" name=""  class="dataTable-search" sname="bt" id="searchcourse" placeholder="课内搜索" value="">
+         </li> -->
+         
+          
+          
+          
+         
+         
+         
+         
+
+
+         
+            
+            
+                <a href="/f/wlxt/index/course/student/course?wlkcid=2019-2020-1139281729" id="wlxt_index_course" class=""><i
+                    class="fa webicon-kcsy" title="课程首页"></i>
+                    <span>课程首页<!--  课程首页--></span></a>
+                <div class="qiehuan">
+                        <div class="changec" style="" id="changec" title="切换课程"><i class="webicon-nth"></i></div>
+                        <ul class="droppanel"  id="kc">
+                        
+                             
+                               
+                                <p class="title">2019-2020学年秋</p>
+                               
+                               
+                            
+                                
+                                
+                                    <li class="kc1"><a href="/f/wlxt/index/course/student/course?wlkcid=2019-2020-1139281729">操作系统(00740103-90)</a></li>
+                                
+                            
+                                
+                                
+                                    <li class="kc1"><a href="/f/wlxt/index/course/student/course?wlkcid=2019-2020-1139282172">概率论与数理统计(10510134-1)</a></li>
+                                
+                            
+                                
+                                
+                                    <li class="kc1"><a href="/f/wlxt/index/course/student/course?wlkcid=2019-2020-1139283396">数据结构(30510273-0)</a></li>
+                                
+                            
+                        
+                            
+                            
+                        </ul> 
+                </div>
+            
+            
+            
+            
+            
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+                <a href="/f/wlxt/kcgg/wlkc_ggb/student/beforePageListXs?wlkcid=2019-2020-1139281729&sfgk=0" id="wlxt_kcgg_wlkc_ggb"><i
+                    class="fa webicon-kcgg" title="课程公告"></i><span>课程公告</span></a>
+            
+            
+            
+            
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+                <a href="/f/wlxt/kc/v_kcxx_jskcxx/student/beforeXskcxx?wlkcid=2019-2020-1139281729&sfgk=0" id="wlxt_kc_v_kcxx_jskcxx"><i
+                    class="fa webicon-kcxx" title="课程信息"></i><span>课程信息</span></a>
+            
+            
+            
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+            
+                <a href="/f/wlxt/kj/wlkc_kjxxb/student/beforePageList?wlkcid=2019-2020-1139281729&sfgk=0" id="wlxt_kj_wlkc_kjxxb"><i
+                    class="fa webicon-kcwj" title="课程文件"></i><span>课程文件</span></a>
+            
+            
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+            
+            
+                <a href="/f/wlxt/kczy/zy/student/beforePageList?wlkcid=2019-2020-1139281729" id="wlxt_kczy_zy"><i
+                    class="fa webicon-kczy" title="课程作业"></i><span>课程作业</span></a>
+            
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+            
+            
+            
+                <a href="/f/wlxt/bbs/bbs_tltb/student/beforePageTlList?wlkcid=2019-2020-1139281729" id="wlxt_bbs_bbs_tltb"><i
+                    class="fa webicon-kctl" title="课程讨论"></i><span>课程讨论</span></a>
+            
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+            
+            
+            
+            
+                <a href="/f/wlxt/bbs/bbs_kcdy/student/beforePageDyList?wlkcid=2019-2020-1139281729" id="wlxt_bbs_bbs_kcdy"><i
+                    class="fa webicon-kcdy" title="课程答疑"></i><span>课程答疑</span></a>
+            
+
+
+
+
+            
+            
+        
+            
+            
+            
+            
+            
+            
+            
+
+
+
+
+            
+                <a href="/f/wlxt/mail/yj_yjxxb/student/beforePageList?wlkcid=2019-2020-1139281729" id="wlxt_mail_yj_yjxxb"><i
+                    class="fa webicon-jxbj" title="课程邮件"></i><span>课程邮件</span></a>
+            
+            
+        
+            
+            
+            
+            
+            
+            
+            
+
+
+
+
+            
+            
+                <a href="/f/wlxt/qz/v_wlkc_qzcyb/student/beforePageWdfzList?wlkcid=2019-2020-1139281729" id="wlxt_qz_v_wlkc_qzcyb"><i
+                    class="fa webicon-kccj" title="我的分组"></i><span>我的分组</span></a>
+            
+        
+    </ul>
+    <div id="shrinkbtn" class="" style="position: relative;">
+        <i class="icon"></i>
+    </div>
+</div>
+<style>
+#shrinkbtn {text-align:center;
+    position:relative;
+    margin-top:13px;
+    height:12px;
+    border-bottom:1px solid #eaeaea;
+    margin-left:20px;margin-right:20px;
+}
+
+#shrinkbtn .icon {
+    background: url(../../../../../res/app/wlxt/img/shrink_cover.png)
+        no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor:pointer;
+    
+}
+
+#shrinkbtn:hover {opacity:0.8;
+    
+}
+
+.navlef.mini a>span {
+    display: none;
+}
+
+.content .navlef.mini {
+    width: 70px;
+}
+
+.navlef.mini .morebtn>span {
+    display: none;
+}
+
+.navlef.mini .morebtn .fa {
+    margin-right: 5px;
+}
+
+.navlef.mini #shrinkbtn .icon {
+    background-image: url(../../../../../res/app/wlxt/img/shrink_up.png)
+}
+
+/* .mini .search input {
+    display: none;
+}
+
+.mini .search .webicon-search {
+    display: block;
+} */
+
+.search.up {
+    width: 220px;
+    z-index: 99;
+    position: relative;
+}
+
+/* .search.up .webicon-search {
+    display: none;
+} */
+
+.search.up input {
+    display: block;
+}
+
+.mini .search>i {
+    font-size: 24px;
+}
+
+.mini .search {
+    text-align: center;
+}
+
+.rtcon.mini {
+    padding-left: 90px;
+}
+
+.mini p.morebtn [class^="webicon-"] {
+    margin-left: 2px;float:none;
+}
+
+.mini .fl .item {
+    width: 790px;
+}
+
+#morebtn {
+    background: #f2f2f2;
+}
+
+   .navlef .tit{position:relative;}  
+  .changec .webicon-nth{font-size:22px;color:#000;line-height:2;cursor:pointer;padding:10px;padding-top:5px;  }
+  .changec .webicon-nth:hover{color:#1392f1;}  
+  .changec{float:left}  
+  .changec.active .webicon-nth{background:#fff;position:relative;z-index:9;box-shadow:0 -3px 5px  rgba(0,0,0,0.2);border-bottom-left-radius:0;border-bottom-right-radius:0; border-radius:3px;padding-bottom:18px;}  
+   .droppanel{position:absolute;top:48px;line-height:1;background:#fff;box-shadow:0 0 10px 0 rgba(0,0,0,0.2);z-index:8;
+    display:none; 
+   margin-top: 4px;padding-top:8px;padding-bottom:8px;padding-left:10px;padding-right:10px;user-select:none;}  
+   .droppanel li{padding:7px 0;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#444;font-size:14px;cursor:pointer;}  
+   .droppanel .title{padding:8px 0;font-size:14px;color:#1392f1;border-bottom:1px solid #eee;padding-bottom:7px;text-indent: 0;}
+  .changec.active +.droppanel{display:block;}  
+   .droppanel li a:hover{color:#1392f1;}  
+   .droppanel li:hover{color:#1392f1;}  
+   .qiehuan{position:absolute;top:5px;right:6px;}   
+   .droppanel li a{color:#485a6a;}  
+  .changec.active{position:relative;z-index:9;} 
+  
+</style>
+     <script type="text/javascript"> 
+     $(function() {
+         
+         $("#changec").click(function(event) {
+                /* Act on the event */
+                if($(this).hasClass('active')){
+                    $(this).removeClass('active');
+                }else{
+                    $(this).addClass('active');
+                }
+                
+                $(this).next().find("li").removeClass("kc1");
+
+            });
+    $(document).click(function(event) {
+
+           if($(event.target).hasClass('webicon-nth')){
+            return;
+           }
+           if($('#kc').css('display')=="block" && $('#changec').hasClass('active')){
+                $('#changec').trigger('click');
+           }
+           
+     })
+             $("#shrinkbtn").on('click', '', function(event) {
+                if ($(this).attr('class') == "") {
+                    $(this).addClass("cover");
+                    $(".navlef").addClass("mini");
+                    $(".rtcon").addClass("mini");
+                    setCookie("wlxt|nav_cover", "cover", 15)
+                } else {
+                    $(this).removeClass("cover");
+                    $(".navlef").removeClass("mini");
+                    $(".rtcon").removeClass("mini");
+                    deleteCookie("wlxt|nav_cover");
+                }
+            }); 
+            
+        });
+     
+     
+//     $(document).ready(function() {
+//          var hostUrl = window.location.host;
+//          var httpUrl = window.location.protocol+"//";
+//          var localUrl = window.location.href;
+//          var start = hostUrl.length+httpUrl.length+3
+//          var end = localUrl.lastIndexOf("/")-8;
+//          var testUrl = localUrl.substring(start,end);
+//          var thisUrl = localUrl.substring(start,end).replace(/\//g,"_");
+//          var strurl = thisUrl.split("_");
+//          var i=0;
+//          var idurl = "#";
+//          while (i<strurl.length){
+//              idurl = idurl+strurl[i]+"_";
+//              i++;
+//          }
+//          alert(idurl.substring(0,idurl.length-1));
+//          $(idurl.substring(0,idurl.length-1)).addClass("select");
+            
+//     });
+  </script> 
+
+        
+        
+        <div class="content_height rtcon clearfix">
+            <div id="content" class="content">
+                <div class="course"><span class="overflow" title='操作系统（00740103-90）'>操作系统（00740103-90）</span>
+               <div id="searchtab" class="search rt">
+                    <input type="text" name="" class="dataTable-search" sname="bt" id="searchcourse" placeholder="课内搜索" value="">
+                    <a href="javascript:void(0);" class="btn"><i class="webicon-search"></i>搜索</a>
+                </div>
+                </div>
+                <div class="fl course-w ">
+                    <div class="notice">
+                        <div class="tit">
+                            <div class="crumb clearfix fl">
+                                <a href="/f/wlxt/bbs/bbs_tltb/student/beforePageTlList?wlkcid=2019-2020-1139281729">课程讨论</a>
+                                <span class="item sep">&gt;</span>
+                                <span class="current">发表话题</span>
+                            </div>
+                            <span class="rt right">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <form action="" id="editFormId" name="form" method="post">
+                            <input type="hidden" name="wlkcid" value="2019-2020-1139281729">
+                            <input type="hidden" name="tltid" value="">
+                            <!--标题-->
+                            <div class="list title notext">
+                                <div class="left"><i class="red">*</i>标题</div>
+                                <div class="right">
+                                    <input type="text" name="bt" required value="" autocomplete="off" placeholder="限50字符以内。">
+                                </div>
+                            </div>
+                            <!--版区-->
+                            <div class="list pattern refer-student">
+                                <div class="left" style="margin-right: 4px;"><i class="red">*</i>版区</div>
+                                <div class="right">
+                                    <div class="group clearfix" id="tabbox">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--话题内容-->
+                            <div class="list description clearfix" style="margin-top: 35px;">
+                                <div class="fl left">话题内容</div>
+                                <div class="fl right clearfix">
+                                    <label for="" class="tip">剩余可输入<span data-limit='5000' id='limit'>5000</span>字符</label>
+                                    <span class="red">超过限定字数</span>
+                                    <textarea name="nr" id="nr" style="height: 128px;min-height:128px" placeholder="限5000字符以内" maxlength="5000"></textarea>
+                                </div>
+                            </div>
+                            <!--附件-->
+                            <div class="list file clearfix" style="display: block">
+                                <div class="fl left">附件</div>
+                                <div class=" right">
+                                    <label class="myinput" for="fileupload">
+                                        <div><i class="webicon-appendix"></i><span>添加附件（最大1G）</span>
+                                                <div class="nulltip">超出大小限制</div>
+                                                <div class="outtip">上传失败，文件类型不支持</div>
+                                        </div><input type="file" id="fileupload" name="fileupload" data-limit="1G">
+                                    </label>
+                                    <div style="display: inline-block;">
+                                        <div class="wdhere" id="attachment" >
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-back sub-back-2 absolute">
+                                <input type="button" id="saveBtn" value="提交" style="background-color: #1392F1;color: #ffffff;margin-right: 16px;" class="btn">
+                                <input type="button" id="backBtn" value="返回" class="btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="searchcon" class="hide"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/table.css?v=353">
+
+    <!--返回顶部-->
+    <div class="right_btn ">
+        <div id="goTopBtn" class="goTopBtn"></div>
+        <div class="erweima">
+            <div class="codedee">
+                <div class="right-triangle"></div>
+                <div class="code-img"><img src="/res/app/wlxt/img/jiaowu-erweima.png"></div>
+                <p class="zizizi">教务处官方微信公众号</p>
+            </div>
+        </div>
+    </div>
+ <div class="footer" style="">
+    <div class="w clearfix">
+        <div class="left">Copyrights 2001-2025&nbsp;&nbsp;清华大学版权所有</div>
+        <div class="right"><a  href="" id="emailHref">问题反馈邮箱: learn2018<img src="/res/images/emailpic1.png" style="width: 16px;height: 16px;vertical-align:middle">tsinghua.edu.cn</a>&nbsp;&nbsp;&nbsp;&nbsp;服务热线: 62788122&nbsp;&nbsp;</div>
+</div>
+<script>
+function goTopEx() {
+    var obj = document.getElementById("goTopBtn");
+
+
+    function getScrollTop() {
+        return document.documentElement.scrollTop + document.body.scrollTop;
+    }
+    function setScrollTop(value) {
+        if (document.documentElement.scrollTop) {
+            document.documentElement.scrollTop = value;
+        } else {
+            document.body.scrollTop = value;
+        }
+    }
+
+
+    window.onscroll = function() {
+
+        // console.log($(this))
+            var h = window.innerHeight;//div可视区域的高度
+            var sh = document.body.scrollHeight;//滚动的高度
+            var st = window.document.documentElement.scrollTop + document.body.scrollTop;//滚动条的高度，即滚动条的当前位置到div顶部的距离
+            if(h+st>=sh-60){
+                // console.log("滑到底部了");
+                $('.right_btn').addClass('abs')
+            }else{
+                $('.right_btn').removeClass('abs')
+            }
+        getScrollTop() > 100 ? obj.style.display = "block": obj.style.display = "none";
+    };
+    obj.onclick = function() {
+        var goTop = setInterval(scrollMove, 10);
+        function scrollMove() {
+            setScrollTop(getScrollTop() / 1.1);
+            if (getScrollTop() < 1) clearInterval(goTop);
+        }
+    }
+}
+      goTopEx();
+
+$("#emailHref").click(function () {
+    var strArray = ["learn2018","@","tsinghua.edu.cn"];
+    var str = "mailto:";
+    for(var i =0;i<strArray.length;i++){
+        str+=strArray[i];
+    }
+    $(this).attr("href",str);
+});
+</script>
+     
+
+ 
+
+
+ <script>
+      baseUrl = '';
+      var wlxtlang_quxiao = "取消";
+      var wlxtlang_queding = "确定";
+      var wlxtlang_zidongguanbidaojishi = "自动关闭倒计时{0}秒";
+      var wlxtlang_quedingjixu = "确定继续吗？";
+ </script>
+  
+ <script type="text/javascript" src="/res/app/wlxt/js/jquery.js?v=353"></script>
+  <script type="text/javascript" src="/res/app/wlxt/js/gl.js?v=353"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/qtip.js?v=353"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/template.js?v=353"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/select2/select2.js?v=353"></script>
+  <script src="/res/ui/plugins/showLoading/showLoading.min.js?v=353" type="text/javascript"></script>
+  <script src="/res/js/common/utils.js?v=353"></script>
+  <script src="/res/js/common/dataTablePlugin.js?v=353"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/zeroModal/zeroModal.js?v=353"></script>
+  <script src="/res/js/common/myApp.js?v=353"></script>  
+ <script type="text/javascript" language="javascript" src="/res/app/wlxt/js/plugin/datatable/jquery.dataTables.js?v=353"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/pagination/jquery.pagination.js?v=353"></script>
+ <script src="/res/ui/plugins/ajaxFileUpload/ajaxfileupload.js?v=353" type="text/javascript"></script>
+ 
+     <!--[if lte IE 9]>
+    <script type="text/javascript"  src="http://www.ijquery.cn/js/html5shiv.js?v=353"></script>
+    <script src="/res/app/wlxt/js/plugin/upload.js?v=353"></script>
+    <![endif]--> 
+ <script src="/res/app/wlxt/js/plugin/upload-cropper/amazeui.min.js?v=353" charset="utf-8"></script>
+    <script src="/res/app/wlxt/js/plugin/upload-cropper/cropper.min.js?v=353" charset="utf-8"></script>
+ <script src="/res/app/wlxt/js/plugin/upload-cropper/mycropper_img.js?v=353" ></script>
+  <script type="text/javascript" src="/res/app/wlxt/js/common.js?v=353"></script>
+ 
+    <script type="text/javascript" src="/res/app/wlxt/js/play.js?v=353"></script>
+   <script type="text/javascript" >
+   $(document).ready(function() {
+        var hostUrl = window.location.host;
+        var httpUrl = window.location.protocol+"//";
+        var localUrl = window.location.href;
+        var start = hostUrl.length+httpUrl.length+3
+        var end = localUrl.lastIndexOf("/")-8;
+        var testUrl = localUrl.substring(start,end);
+        var thisUrl = localUrl.substring(start,end).replace(/\//g,"_");
+        var strurl = thisUrl.split("_");
+        var i=0;
+        var idurl = "#";
+        while (i<strurl.length){
+            idurl = idurl+strurl[i]+"_";
+            i++;
+        }
+//      alert(idurl.substring(0,idurl.length-1));
+        
+        if(idurl.substring(0,idurl.length-1)=="#wlxt_kczy_xszy"){
+            $("#wlxt_kczy_zy").addClass("select");
+        }else if((idurl.substring(0,idurl.length-1)=="#wlxt_index_course_teacher_from01to18Course?wlkcid=") || 
+                (idurl.substring(0,idurl.length-1)=="#wlxt_index_course_student_from01to18Course?wlkcid=")){
+            $("#wlxt_index_course").addClass("select");
+        }else{
+            $(idurl.substring(0,idurl.length-1)).addClass("select");
+        }
+        
+});
+  </script>
+  <script type="text/javascript"  src="/component/MathJaxMini/MathJax-extend.js?v=353" ></script>
+ 
+    <script type="text/javascript" src="/res/app/wlxt/js/plugin/validate/jquery.validate.js?v=353"></script>
+    <script type="text/javascript" src="/res/app/wlxt/js/plugin/validate/messages_zh.js?v=353"></script>
+    <script src="/res/ui/plugins/ajaxFileUpload/ajaxfileupload.js?v=353" type="text/javascript"></script>
+    <script type="text/html" id="mytab">
+        {{each lists value j}}
+        <div class="onetab {{if j==0}}active{{/if}}" style="">
+            <div class="mytabhd {{if j==0}}one{{/if}}" style="">
+                <label class="mycheck">
+                    <input type="radio" name="bqid" value="{{value.bqid}}" {{if j==0}}checked="checked" {{/if}}><i></i>{{value.title}}
+                </label>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script type="text/html" id="adheretm">
+        <div class="fl bg-img"></div>
+        <div class="txt fl">
+            <span class="ftitle">{{title}}</span><span class="color_777">{{size}}</span>
+            <a class="linkgreen" href="javascript:void(0);" id="removeFile">删除</a>
+        </div>
+    </script>
+    
+    <script type="text/javascript">
+    $(function() {
+        $("#editFormId").validate({
+            rules: {
+              bt: {
+                required: true,
+                maxlength: 50
+              }
+            }
+        });
+        $.extend($.validator.messages, {
+            required: "必填字段"
+        });
+        var maxlength = 5000;
+        var editor = CKEDITOR.replace('nr', { height: "360px",
+                        
+                        mathJaxLib: '/component/MathJaxMini/MathJax.js?config=TeX-AMS-MML_HTMLorMML' ,
+                        filebrowserUploadUrl:'/b/wlxt/common/CKEditorUploadJson?wlkcid=2019-2020-1139281729&lb=BBS',
+                        filebrowserImageUploadUrl:'/b/wlxt/common/CKEditorUploadJson?wlkcid=2019-2020-1139281729&lb=BBS',
+                        imageUploadURL:'/b/wlxt/common/CKEditorUploadJson?wlkcid=2019-2020-1139281729&lb=BBS',
+                                   wordcount: { // 可选
+                                         showParagraphs: false, 
+                                         showWordCount: false, 
+                                         showCharCount: true, //显示字数
+                                         countSpacesAsChars: true,
+                                         maxCharCount: 5000, //字数上限
+
+                                     }
+                                    
+                } );
+        editor.on("instanceReady", function() {
+            this.document.getBody().on("keyup", function(event) {
+                //debugger;
+                var oldhtml = editor.document.getBody().getHtml();
+                var description = oldhtml.replace(/<.*?>/ig, "");
+                var maxlength = $('#limit').data("limit");
+                var len = getByteLen(MyApp.escapeChars(description));
+                var slen = maxlength - len;
+                if(slen>=0){
+                    if($('.tip').hasClass('hide')){
+                        $('.tip').removeClass('hide');
+                        editoron=false;
+                    }
+                }
+                if (event.data.$.which == 8) {
+                    if (description == "") {
+                        $('#limit').html(maxlength);
+                        return;
+                    }
+                }
+                if(slen<0){
+                    $('.tip').addClass('hide');
+                    editoron=true;
+                    return;
+                }
+
+                $('#limit').html(slen);
+            });
+
+        });
+
+
+    });
+    </script>
+      
+    <script type="text/javascript">
+    $(function() {
+        $("#fileupload").on('change', function(event) { //上传文件  start
+            var asize;
+            var path = $(this).val();
+            if (IEVersion() != 9) {
+                asize = $(this)[0].files[0].size;
+                asize = judgeSize(asize);
+            } else {
+                asize = " "
+            }
+            //$("#label").html(path);
+
+            var pIndex = path.lastIndexOf('\\');
+            var fileExtension = path.substring(pIndex + 1);
+            var zIndex = fileExtension.lastIndexOf('\.');
+            var zExtension = fileExtension.substring(zIndex + 1);
+            if (zExtension == 'png') {
+                zExtension = 'jpg'
+            }
+            if (fileExtension.match(/[\/\*\?\:\<\>\”\|]/g)) {
+                $(".myinput").addClass('error');
+                return;
+            }
+
+        });
+        $("#attachment").delegate('a', 'click', function(event) {
+            $.post('/b/wlxt/bbs/bbs_fjb/student/fjListByTltid',{tltid:'',wlkcid:'2019-2020-1139281729'},function(result){
+                if(result.msg=="1"){
+                    Modal({
+                        type: "confirm",
+                        content: "确定要删除吗？",
+                        css: "one",
+                        okfn: function() {
+                            var delDataUrl = "/b/wlxt/bbs/bbs_fjb/student/delByTltid";
+                            $.post(delDataUrl,{tltid:'',wlkcid:'2019-2020-1139281729'},function(data){
+                                if(data.result == 'success'){
+                                    Modal({ 
+                                        type: data.result, 
+                                        css: "one",
+content: data.msg,
+                                        okfn: function() {
+                                            $("#fileupload").val("");
+                                            $("#attachment").html('');
+                                            $("#attachment").attr("class", "wdhere");
+                                            $("#label").html('请上传文件');fileon=false;
+                                        }
+                                    });
+                                }else{
+                                    Modal({
+                                        type: "regest",
+                                        css: "one",
+content: data.msg, 
+                                        contentDetail: " " 
+                                    })
+                                }
+                            });
+                        },
+                        cancelfn: function() {
+            
+                        }
+                    })
+                }else{
+                    $("#fileupload").val("");
+                    $("#attachment").html('');
+                    $("#label").html('请上传文件');fileon=false;
+                }
+            });
+        });
+
+    });
+    function _downLoad(id){
+        window.location.href="/b/kc/wj_wjb/downloadFile?wjid="+id;
+    }
+    $.post('/b/wlxt/bbs/bbs_bqb/student/bqListByWlkcid',{wlkcid:'2019-2020-1139281729'},function(result){
+        bqList = eval('(' + result + ')');
+        var mydata = { lists: bqList };
+        var mytabhtml = template('mytab', mydata);
+        $("#tabbox").html(mytabhtml); //所教课程
+        if(''==''){
+            $(":radio[name='bqid'][value='']").prop("checked","checked");
+        }else{
+            $(":radio[name='bqid'][value='']").prop("checked","checked");
+        }
+    });
+    $("#saveBtn").click(function() {
+        if (!$("#editFormId").valid()||editoron||fileon) {          
+            return false;
+        }       
+        if ($("#editFormId").valid()) {
+            disbtn($("#saveBtn"));
+            var nr = CKEDITOR.instances.nr.getData();
+            if(nr==""){
+                Modal({
+                    type: "regest",
+                    css: "one",
+                    content: "不可发表空话题！",
+                    contentDetail: " "
+                });
+                rebtn($("#saveBtn"));
+                return false;
+            }
+            $("#nr").val(nr);
+            var saveEditUrl = "/b/wlxt/bbs/bbs_tltb/student/saveTlht?wlkcid=2019-2020-1139281729";
+            MyApp.submitFileFormProgress(saveEditUrl, "editFormId", function(data) {
+                if(data.result == 'success'){
+                    Modal({ 
+                        type: data.result, 
+                        css: "one",
+content: data.msg,
+                        okfn: function() {
+                            window.location.href="/f/wlxt/bbs/bbs_tltb/student/beforePageTlList?wlkcid=2019-2020-1139281729";
+                        }
+                    });
+                }else if(data.result == 'regest'){
+                    Modal({
+                        type: "regest",
+                        css: "one",
+content: data.msg, //默认  '删除分组方案将清除本方案及所有数据'
+                        contentDetail: " " //默认  '确定删除吗？'
+                    })
+                }else{
+                    $(".myinput").addClass('error2');
+                    rebtn($("#saveBtn"));
+                    /* $(".myinput span").after('<div class="tip">'+data.msg+'</div>') */
+                }
+            });
+        }
+    }); 
+    $("#backBtn").click(function() {
+        Modal({
+            type: "confirm",
+            content: "您的编辑信息尚未保存，继续操作将放弃当前编辑",
+            contentDetail: "确定继续吗？",
+            okfn: function() {
+                window.location.href="/f/wlxt/bbs/bbs_tltb/student/beforePageTlList?wlkcid=2019-2020-1139281729";
+            },
+            cancelfn: function() {
+
+            }
+        })
+    });
+
+    // JQ实现textarea自适应（class复用实现）
+    $(function() {
+        function getClass(c) {
+            return document.getElementsByClassName(c);
+        }
+        var obj = getClass("text-adaption");
+        var len = obj.length;
+
+        for (var i = 0; i < len; i++) {
+            obj[i].onkeyup = function() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + "px";
+            };
+        }
+
+    });
+    </script>
+</body>
+
+</html>

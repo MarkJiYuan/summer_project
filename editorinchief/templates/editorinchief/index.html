@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	eic主页
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'editorinchief:index' %}"><span id="profile0-tab-span">主编个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	主编{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editorinchief:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editorinchief:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editorinchief:all_articles' %}">全部稿件</a></li>
+	</ul>
+	<ul>
+		<li><a href="{% url 'editorinchief:admin_editor' %}">editor管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_ae' %}">ae管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_reviewer' %}">reviewer管理</a></li>
+	</ul>
+{% endblock %}
+
+{% block tab_content %}
+	{% if message %}
+		<div class="message">{{ message }}</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'newitem.html' %}
+
+{% block title %}
+	新增ae
+{% endblock %}
+
+{% block index_button %}
+	<a class="navbar-brand" href="{% url 'editorinchief:index' %}">主编个人主页</a>
+{% endblock %}
+
+{% block info %}
+	主编{{ request.session.username }}
+{% endblock %}
+
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editorinchief:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editorinchief:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editorinchief:all_articles' %}">全部稿件</a></li>
+	</ul>
+	<ul>
+		<li><a href="{% url 'editorinchief:admin_editor' %}">editor管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_ae' %}">ae管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_reviewer' %}">reviewer管理</a></li>
+	</ul>
+{% endblock %}
+
+
+{% block form %}
+	<form action="{% url 'editorinchief:add_ae' %}" method="post" id="new-ae-form" class="newitem_form">
+		{% csrf_token %}
+		<div class="input_box">
+            <div class="left_text"><i class="red">*</i>姓名</div>
+            <div class="right_input">
+                <input type="text" name="nickname" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+            </div>
+        </div>
+
+        <div class="input_box">
+            <div class="left_text"><i class="red">*</i>机构</div>
+            <div class="right_input">
+                <input type="text" name="institution" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+            </div>
+        </div>
+
+        <div class="input_box">
+            <div class="left_text"><i class="red">*</i>领域</div>
+            <div class="right_input">
+                <input type="text" name="field" required="" value="" autocomplete="off" placeholder="不同领域名用空格分割" aria-required="true">
+            </div>
+        </div>
+
+        <div class="input_box">
+            <div class="left_text"><i class="red">*</i>用户名</div>
+            <div class="right_input">
+                <input type="text" name="account" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+            </div>
+        </div>
+
+        <div class="input_box">
+            <div class="left_text"><i class="red">*</i>密码</div>
+            <div class="right_input">
+                <input type="text" name="password" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+            </div>
+        </div>
+
+		<div class="input_box">
+            <div class="left_text"><i class="red">*</i>邮箱</div>
+            <div class="right_input">
+                <input type="text" name="email_adr" required="" value="" autocomplete="off" placeholder="限50字符以内。" aria-required="true">
+            </div>
+        </div>
+        
+
+        <div class="sub_back">
+        	<button type="button" class="do_submit" onclick="add_new_ae()">确认添加</button>
+        	<button type="button" class="return_btn" onclick="goback()">返回</button>
+        </div>
+	</form>
+
+{% endblock %}
+
+
+{% block script %}
+	<script type="text/javascript">
+		function add_new_ae() {
+			var form = document.getElementById('new-ae-form');
+			form.submit();
+		}
+		function goback() {
+			window.history.go(-1);
+		}
+	</script>
+{% endblock %}

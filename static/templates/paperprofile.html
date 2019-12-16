@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+	<style type="text/css">
+		.panel {
+		    margin-bottom: 30px;
+		    margin-left: 30px;
+		    position: relative;
+		    padding: 0 25px;
+		    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+		    background-color: #FFFFFF;
+		    border-radius: 3px;
+		}
+		.crumb.fl {
+		    border: 0;
+		    margin-top: 20px;
+		}
+		.notice .tit {
+		    height: 50px;
+		    line-height: 25px;
+		    border-bottom: 1px solid #c4c4c4;
+		    font-size: 18px;
+		    color: #1392F1;
+            display: inline-block;
+		}
+		.detail {
+		    bottom: 34px;
+            min-height: 600px;
+		}
+        .basic_info {
+            position: relative;
+            margin-top: 18px;
+            position: relative;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+		.left_img {
+            float: left;
+            margin-left: 50px;
+        }
+        .right_table {
+            margin-left: 30px;
+            width: 530px;
+            float: left;
+        }
+        .table_title {
+            font-size: 22px;
+            color: red;
+            padding-bottom: 20px;
+        }
+        .basic_info_table {
+            width: 100%;
+        }
+        .info_classname {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            line-height: 38px;
+        }
+        .info_section {
+            margin-bottom: 12px;
+            clear: both;
+            display: block;
+        }
+        .cont {
+            line-height: 2;
+            word-wrap: break-word;
+        }
+        .sub_back {
+            position: relative;
+            bottom: 0;
+            top: 50px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            left: 35%;
+            width: 270px;
+            display: block;
+        }
+        .button_1 {
+            width: 120px;
+            height: 36px;
+            background-color: #1392F1;
+            color: #FFFFFF;
+            border-radius: 3px;
+            font: 400 12px system-ui;
+            align-items: flex-start;
+            text-align: center;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .button_2 {
+            width: 120px;
+            height: 36px;
+            background-color: #899ea8;
+            color: #FFFFFF;
+            border-radius: 3px;
+            font: 400 12px system-ui;
+            align-items: flex-start;
+            text-align: center;
+            display: inline-block;
+            margin: 0;
+        }
+        .cont p {
+            margin-left: 25px;
+            margin-right: 25px; 
+            margin-bottom: 30px;
+            position: absolute;
+            left: 50px;
+        }
+        .download_link {
+            font: 400 16px system-ui;
+            align-items: flex-start;
+            color: blue;
+            position: relative;
+            left: 0px;
+        }
+        .underline:hover {
+            text-decoration: underline;
+        }
+        .text_area {
+            width: 80%;
+            height: 124px;
+            min-height: 124px;
+            resize: none;
+            border: 1px solid #d7d7d7;
+            border-radius: 3px;
+            overflow: hidden;
+            line-height: 24px;
+            font-size: 12px;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 5px;
+        }
+	</style>
+{% endblock %}
+
+{% block tab_content %}
+	<div class="panel">
+        <div class="notice">
+            <div class="tit">
+                <div class="crumb clearfix fl">
+                    <a href="">稿件详情</a>
+                </div>
+            </div>
+        </div>
+
+        {% if message %}
+			<div class="message">{{ message }}</div>
+		{% endif %}
+
+        <div class="detail">
+            <div class="basic_info">
+                <div class="left_img">
+                    <img src="{% static 'graphs/bigdata.jpeg' %}">
+                </div>
+
+                <div class="right_table">
+                    <div class="table_title">审理状态：{% block status %}{% endblock %}</div>
+                    <table class="basic_info_table">
+                        <tbody>
+                            <tr>
+                                <td class="info_classname">题目</td>
+                                <td>{{ paper.title }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">作者</td>
+                                <td>{{ paper.author }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">关键词</td>
+                                <td>{{ paper.keywords }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">提交时间</td>
+                                <td>{{ paper.submit_time }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">提交者</td>
+                                <td>{{ paper.account }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="info_section">
+                <div class="notice">
+                    <div class="tit">
+                        <div class="crumb clearfix fl">
+                            <a>摘要</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <p>{{ paper.abstract }}</p>
+                </div>
+            </div>
+
+            <div class="info_section">
+                <div class="notice">
+                    <div class="tit">
+                        <div class="crumb clearfix fl">
+                            <a>附件下载</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <p><a href="{% url 'editor:download' paper.idArticle paper.submit_times %}" class="underline download_link">{{ paper.title }}</a></p>
+                </div>
+            </div>
+
+
+
+            {% block more_information %}
+            {% endblock %}
+
+        </div>
+
+
+    </div>
+	
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'paperprofile.html' %}
+
+{% block title %}
+	稿件详情
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'editorinchief:index' %}"><span id="profile0-tab-span">主编个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	主编{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+
+	<ul>
+		<li><a href="{% url 'editorinchief:pending' %}">待处理</a></li>
+		<li><a href="{% url 'editorinchief:processing' %}">处理中</a></li>
+		<li><a href="{% url 'editorinchief:all_articles' %}">全部稿件</a></li>
+	</ul>
+	<ul>
+		<li><a href="{% url 'editorinchief:admin_editor' %}">editor管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_ae' %}">ae管理</a></li>
+		<li><a href="{% url 'editorinchief:admin_reviewer' %}">reviewer管理</a></li>
+	</ul>
+{% endblock %}
+
+{% block status %}
+	{{ paper.shen2 }}
+{% endblock %}
+
+{% block more_information %}
+
+	{% if current_eic %}
+
+		<style type="text/css">
+			.detail {
+				min-height: 800px;
+			}
+		</style>
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>主编{{ current_eic }}评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_eic }}</p>
+			</div>
+		</div>
+
+	{% endif %}
+
+	{% if current_ae %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>AE{{ current_ae }}评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_ae }}</p>
+			</div>
+		</div>
+
+	{% endif %}
+
+	{% if current_reviewer %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>Reviewer{{ current_reviewer }}评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>{{ comment_reviewer }}</p>
+			</div>
+		</div>
+
+	{% endif %}
+
+	{% if allow_select %}
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>选择AE</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont" style="padding-left: 50px;">
+				<form method="post" id="selectae-form">
+					{% csrf_token %}
+					<select name="ae_account">
+						{% for ae in aes %}
+							<option value="{{ ae.account }}">{{ ae.name }}, {{ ae.field }}</option>
+						{% endfor %}
+					</select>
+				</form>
+				<button class="button_1" onclick="distribute()" style="margin-top: 10px;">确定分配</button>
+			</div>
+			
+		</div>
+	{% endif %}
+
+	{% if allow_comment %}
+
+		<div class="info_section">
+	        <div class="notice">
+	            <div class="tit">
+	                <div class="crumb clearfix fl">
+	                    <a>审阅意见</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="cont">
+	            <form action="{% url 'editorinchief:finish' paper.idArticle paper.submit_times %}" method="post" id="comment-form">
+	            	{% csrf_token %}
+	            	<textarea name="comment" class="text_area"></textarea>
+
+					<div class="notice">
+						<div class="tit">
+							<div class="crumb clearfix fl">
+			                    <a>评阅结果</a>
+			                </div>
+						</div>
+					</div>
+
+					<div class="cont" style="margin-left: 50px;">
+						<label class="mycheck">
+		                    <input type="radio" name="judgement" value="待修改" checked="checked"><i></i>待修改
+		                </label>
+		                <label class="mycheck">
+		                    <input type="radio" name="judgement" value="决定发表"><i></i>决定发表
+		                </label>
+		                <label class="mycheck">
+		                    <input type="radio" name="judgement" value="决定不录用"><i></i>决定不录用
+		                </label>
+					</div>
+					<button type="submit" class="button_1" style="margin-top: 20px;margin-left: 50px;margin-bottom: 30px;">完成评审</button>
+					
+	            </form>
+	        </div>
+	    </div>
+	
+	{% endif %}
+
+
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		function distribute() {
+			var form = document.getElementById('selectae-form')
+			form.action = "{% url 'editorinchief:choose_ae' paper.idArticle paper.submit_times %}"
+			form.submit()
+		}
+	</script>
+
+{% endblock %}
+
+
+
+

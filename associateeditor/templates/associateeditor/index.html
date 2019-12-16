@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	ae主页
+{% endblock %}
+
+{% block index_button %}
+	<a class="#course1" id="profile0-tab" href="{% url 'associateeditor:index' %}"><span id="profile0-tab-span">责编个人主页</span></a>
+{% endblock %}
+
+{% block info %}
+	责编{{ request.session.username }}
+{% endblock %}
+
+{% block content %}
+	<ul>
+		<li><a href="{% url 'associateeditor:pending' %}">待处理</a></li>
+		<li><a href="{% url 'associateeditor:processing' %}">处理中</a></li>
+		<li><a href="{% url 'associateeditor:done' %}">已完成</a></li>
+	</ul>
+
+{% endblock %}
+
+
+{% block tab_content %}
+	{% if message %}
+		<div class="message">{{ message }}</div>
+	{% endif %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://39.105.121.157/submitter/submittedprofile/1/1 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>
+	稿件详情
+</title>
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/common.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/index.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/table.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/courselist.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/calendar.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/select2.css">
+    <link href="./稿件详情_files/qtip.css" rel="stylesheet">
+    <link rel="stylesheet" href="./稿件详情_files/pagination.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/zeroModal.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/fonticon.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/amazeui.cropper.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/mycropper_img.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/zeroModal.css">
+    <link rel="stylesheet" type="text/css" href="./稿件详情_files/style.css">
+    <script type="text/javascript" src="./稿件详情_files/jquery.js"></script>
+    <style>
+        .hidden { display:none;}
+		.block {display: block;}
+		.inlineBlock {display: inline-block;}
+  		.list{color: #555555;font-size: 14px;}
+        .list .item {border-bottom: 1px solid #eeeeee;padding-bottom: 8px;margin-top: 20px;}
+        .list .item:first-child {border-bottom: 1px solid #eeeeee;padding-bottom: 8px;margin-top: 5px;}
+        .list .item p{display: inline-block;}
+        .list .item p a{color: #555555;font-size: 14px;}
+        .list .item p.caozuo a{margin-left: 40px;}
+        .list .item p.caozuo a:hover{margin-left: 40px;text-decoration: underline;}
+        .list .item p.caozuo a span{    display: inline-block;width: 14px;}
+        .list .item:hover .teac a{color: #1392f1;text-decoration: underline;}
+        /*.list .item:hover{background-color: #F0FCFF;}*/
+        .list .item a:hover{color: #1392f1;}
+        
+        .boxdetail .cour_left{width: 150px;}
+        
+        /*.boxdetail .cour_right{width: 784px;margin-left: 16px;}*/
+        .boxdetail dd.stu{padding: 20px 26px;}
+        .boxdetail dd .title{margin-left: 10px;font-size: 20px;padding-top: 0;line-height: 30px;height: auto;display: inline-block;}
+        .boxdetail dd .title.stu{margin-left: 10px;line-height:1.3; max-width: 390px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: relative;
+            top:-3px;}
+
+        .boxdetail .hdtitle.stu{border-bottom: none;padding-bottom: 17px;}
+        .boxdetail .hdtitle{border-bottom: 1px solid #dddddd;padding-bottom: 7px;}
+        .boxdetail .hdtitle a{color: #1392f1;}
+        .boxdetail .state.stu{margin-top: 0;}
+        .boxdetail .state ul.stu{width: 956px;border: 1px solid #ddd;}
+        .boxdetail .state.stu li{width: 161px;padding:12px;min-height: 90px;}
+        .boxdetail .state.stu li:first-child{width:150px;padding:10px 10px 8px 10px;}
+        .boxdetail .state .unsee{font-size: 14px;color: #444444;}
+        .boxdetail .state .unsub{font-size: 14px;color: #444444;}
+
+
+        .boxdetail .state .num.liulan{float: left;margin-right: 4px;}
+        /*.boxdetail .state .num.faqi{font-size: 14px;}*/
+        .boxdetail .state .zcount_stu{margin-top: 28px;}
+        /*.boxdetail .state.stu {-margin-top: 0;margin-right: 0;*/
+        /*float: left;}*/
+        .hdtitle .btngroup .stu_btn{
+            min-width: 130px;height: 28px;display: block;float: left;
+            color: #444444;
+            line-height: 22px;font-size: 16px;margin-right: 12px;
+        }
+        .hdtitle .btngroup .stu_btn_pai{
+            width: 355px;height: 28px;display: block;float: left;
+            color: #444444;
+            line-height: 24px;font-size: 14px;
+            text-overflow: ellipsis;overflow: hidden;white-space: nowrap;
+        }
+        .boxdetail .state .num{font-size: 12px;}
+        .boxdetail .state .orange.stud{padding-left: 8px;font-size: 17px;}
+        .boxdetail .state .wee.stud{padding-left: 8px;color: #4fc2b9;font-size: 17px;}
+        .boxdetail .state .green.stud{padding-left: 8px;color: #8fca6e;font-size: 17px;}
+
+        .boxdetail .state .uuuhhh span.name:hover{text-decoration: underline;color: #1392f1;}
+		.english  .boxdetail .state.stu li{padding-left: 8px;padding-right: 8px;}
+		.english .stu .num.liulan{display: block;float: none!important;}
+		.english .boxdetail .state.stu li:nth-child(2){width: 168px;}
+		.appname {
+			color: #ffffff;
+			position: absolute;
+			top: 20px;
+			left: 130px;
+			font-size: 20px;
+		}
+        .message {
+            position: relative;
+            margin: 20px 20px;
+            height: 30px;
+            line-height: 1;
+            font-size: 18px;
+            color: #222;
+            box-sizing: border-box;
+        }
+	</style>
+    
+	<style type="text/css">
+		.panel {
+		    margin-bottom: 30px;
+		    margin-left: 30px;
+		    position: relative;
+		    padding: 0 25px;
+		    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+		    background-color: #FFFFFF;
+		    border-radius: 3px;
+		}
+		.crumb.fl {
+		    border: 0;
+		    margin-top: 20px;
+		}
+		.notice .tit {
+		    height: 50px;
+		    line-height: 25px;
+		    border-bottom: 1px solid #c4c4c4;
+		    font-size: 18px;
+		    color: #1392F1;
+            display: inline-block;
+		}
+		.detail {
+		    bottom: 34px;
+            min-height: 600px;
+		}
+        .basic_info {
+            position: relative;
+            margin-top: 18px;
+            position: relative;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+		.left_img {
+            float: left;
+            margin-left: 50px;
+        }
+        .right_table {
+            margin-left: 30px;
+            width: 530px;
+            float: left;
+        }
+        .table_title {
+            font-size: 22px;
+            color: red;
+            padding-bottom: 20px;
+        }
+        .basic_info_table {
+            width: 100%;
+        }
+        .info_classname {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            line-height: 38px;
+        }
+        .info_section {
+            margin-bottom: 12px;
+            clear: both;
+            display: block;
+        }
+        .cont {
+            line-height: 2;
+            word-wrap: break-word;
+        }
+        .sub_back {
+            position: relative;
+            bottom: 0;
+            top: 50px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            left: 35%;
+            width: 270px;
+            display: block;
+        }
+        .button_1 {
+            width: 120px;
+            height: 36px;
+            background-color: #1392F1;
+            color: #FFFFFF;
+            border-radius: 3px;
+            font: 400 12px system-ui;
+            align-items: flex-start;
+            text-align: center;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .button_2 {
+            width: 120px;
+            height: 36px;
+            background-color: #899ea8;
+            color: #FFFFFF;
+            border-radius: 3px;
+            font: 400 12px system-ui;
+            align-items: flex-start;
+            text-align: center;
+            display: inline-block;
+            margin: 0;
+        }
+        .cont p {
+            margin-left: 25px;
+            margin-right: 25px; 
+            margin-bottom: 30px;
+            position: absolute;
+            left: 50px;
+        }
+        .download_link {
+            font: 400 16px system-ui;
+            align-items: flex-start;
+            color: blue;
+            position: absolute;
+            left: 0px;
+        }
+        .underline:hover {
+            text-decoration: underline;
+        }
+        .text_area {
+            width: 80%;
+            height: 124px;
+            min-height: 124px;
+            resize: none;
+            border: 1px solid #d7d7d7;
+            border-radius: 3px;
+            overflow: hidden;
+            line-height: 24px;
+            font-size: 12px;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 5px;
+        }
+	</style>
+
+</head>
+
+<body class="bg" style="">
+    <style>
+	    .hidden {
+	        display: none
+	    }
+
+	    .more {
+	        cursor: pointer
+	    }
+
+	    .zeromodal-container.english .lists .left {
+	        margin-bottom: 0px;
+	    }
+
+	    .zeromodal-container.english .lists .left>div,
+	    .zeromodal-container.english .lists .right>div {
+	        margin-bottom: 12px;
+	    }
+
+    </style>
+
+    <div class="header had CN">
+        <div class="w">
+            <div class="left">
+                <a style="cursor: pointer;"><img src="./稿件详情_files/tsinghua_logo.png" alt="退出"><span class="Beta">Beta Version</span></a>
+                <a href="http://39.105.121.157/submitter/submittedprofile/1/1" class="appname">迅波投审稿</a>
+            </div>
+
+            <div class="right">
+                <div>
+                	<a href="http://39.105.121.157/submitter/submittedprofile/1/1">您是：
+	投稿人zhengjiyuan
+</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div>
+                	<a href="http://39.105.121.157/submitter/submittedprofile/1/1">设置</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div>
+                	<a href="http://39.105.121.157/submitter/submittedprofile/1/1">英文版</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div>
+                	<a href="http://39.105.121.157/submitter/submittedprofile/1/1">帮助</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div>
+                	<a onclick="logout();">退出登录</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tsk{display: none;}
+	    .jg {
+	        padding-left: 67px;
+	    }
+	    .jg img {
+	        display: inline-block;
+	        vertical-align: top;
+	    }
+	    .jg .item {
+	        display: inline-block;
+	        vertical-align: top;
+	        padding-top: 6px;
+	    }
+	    .jg .item p {
+	        font-size: 20px;
+	        color: #ff9600;
+	        line-height: 1;
+	    }
+	    .jg .item p.last {
+	        color: #777777;
+	        margin-top: 12px;
+	    }
+	    .llq-tb {
+	        display: table;
+	        margin-top: 54px;
+	        margin-left: auto;
+	        margin-right: auto;
+	    }
+	    .llq-tb .td {
+	        display: table-cell;
+	        text-align: center;
+	        width: 159px;
+	        height: 208px;
+	    }
+	    .llq-tb .name {
+	        font-size: 18px;
+	        color: #666;
+	        margin-top: 24px;
+	        margin-bottom: 12px;
+	    }
+	    .loadbtn {
+	        line-height: 34px;
+	        width: 100px;
+	        text-align: center;
+	        font-size: 14px;
+	        display: inline-block;
+	        color: #aaa;
+	    }
+	    a.loadbtn{
+	        background-color: #1493f2;
+	        border-radius: 17px;
+	        color: #fff;
+	    }
+	    .loadbtn:hover {
+	        opacity: 0.8;
+	    }
+	    .tsgrey{position: fixed;top: 0;left: 0;bottom: 0;right: 0;background-color: #000;opacity: 0.3;display: none;}
+	    .llq-tb .browser_ic {color: #cccccc;margin-bottom: 26px;}
+	    .llq-tb .browser_ic i{font-size: 24px;}
+	    .llq-tb .browser_ic i.webicon-Windows{font-size: 20px;} 
+	</style>
+
+    <div class="nav">
+        <ul id="myTabs" class="nav nav-tabs clearfix" role="tablist">
+            <div class="content">
+                <li style="cursor:pointer;" role="presentation" class="active">
+        			
+	<a class="#course1" id="profile0-tab" href="http://39.105.121.157/submitter/"><span id="profile0-tab-span">投稿人个人主页</span></a>
+
+    			</li>
+
+                
+
+	<li><a href="http://39.105.121.157/submitter/submit/">投稿</a></li>
+	<li><a href="http://39.105.121.157/submitter/submitted/">过往投稿</a></li>
+	<li><a href="http://39.105.121.157/submitter/saved">保存尚未提交</a></li>
+
+
+            </div>
+        </ul>
+    </div>
+
+	<div id="myTabContent" class="tab-content content CN">
+        
+	<div class="panel">
+        <div class="notice">
+            <div class="tit">
+                <div class="crumb clearfix fl">
+                    <a href="http://39.105.121.157/submitter/submittedprofile/1/1">稿件详情</a>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="detail">
+            <div class="basic_info">
+                <div class="left_img">
+                    <img src="./稿件详情_files/bigdata.jpeg">
+                </div>
+
+                <div class="right_table">
+                    <div class="table_title">审理状态：
+	决定发表
+</div>
+                    <table class="basic_info_table">
+                        <tbody>
+                            <tr>
+                                <td class="info_classname">题目</td>
+                                <td>test001</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">作者</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">关键词</td>
+                                <td>OO</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">提交时间</td>
+                                <td>2019-07-19 06:00:23</td>
+                            </tr>
+                            <tr>
+                                <td class="info_classname">提交者</td>
+                                <td>zhengjiyuan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="info_section">
+                <div class="notice">
+                    <div class="tit">
+                        <div class="crumb clearfix fl">
+                            <a>摘要</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <p>终于做完了，好开心</p>
+                </div>
+            </div>
+
+            <div class="info_section">
+                <div class="notice">
+                    <div class="tit">
+                        <div class="crumb clearfix fl">
+                            <a>附件下载</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <p><a href="http://39.105.121.157/editor/download/1/1" class="underline download_link">test001</a></p>
+                </div>
+            </div>
+
+
+
+            
+
+	<style type="text/css">
+		.detail {
+			min-height: 600px;
+		}
+	</style>
+
+	
+
+		<div class="info_section">
+			<div class="notice">
+				<div class="tit">
+					<div class="crumb clearfix fl">
+	                    <a>主编评价内容</a>
+	                </div>
+				</div>
+			</div>
+			<div class="cont">
+				<p>可以，打一架！</p>
+			</div>
+		</div>
+
+	
+
+	
+
+	
+
+	
+
+
+
+        </div>
+
+
+    </div>
+	
+
+	</div>
+    
+
+    <div class="footer" style="">
+        <div class="w clearfix">
+            <div class="left">Copyrights 2001-2025&nbsp;&nbsp;清华大学版权所有</div>
+            <div class="right"><a href="http://39.105.121.157/submitter/submittedprofile/1/1" id="emailHref">问题反馈邮箱: zhengjiy16@163.com</a>&nbsp;&nbsp;&nbsp;&nbsp;管理员电话: (+86)13488884850&nbsp;&nbsp;</div>
+        </div>
+    </div>
+
+    
+	<script type="text/javascript">
+		function doSubmit() {
+			var form = document.getElementById('do_submit');
+			form.submit();
+		}
+		function delete_article() {
+			var form = document.getElementById('delete_form');
+			form.submit();
+		}
+		function reSubmit() {
+			var form = document.getElementById('resubmit_form');
+			form.submit();
+		}
+	</script>
+
+    <script type="text/javascript">
+	    function logout() {
+	        window.location.href = "/logout/"
+	    }
+    </script>
+
+
+</body></html>
