@@ -16,5 +16,5 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "papersubmission.settings")
 
 application = get_wsgi_application()
 
-sys.path.append('/home/upload/papersubmission')
-sys.path.append('/home/upload/papersubmission/papersubmission')
+sys.path.append('/home/summer_project')
+sys.path.append('/home/summer_project/papersubmission')
